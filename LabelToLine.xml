@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Filtering</category>
+  <index>3</index>
+  <title>Label to Line converter</title>
+  <description>
+    Convert a segmented line image (e.g. needle) to a linear transform
+  </description>
+  <version>0.1.0.$Revision: 1.1 $(alpha)</version>
+  <documentation-url>http://https://github.com/SNRLab/NeedleDetection</documentation-url>
+  <license></license>
+  <contributor>Junichi Tokuda</contributor>
+<acknowledgements>
+This work is part of NIH 5R01 CA111288 -- Enabling Technologies for MRI-guided Prostate Interventions (PI: Clare M. Tempany).
+</acknowledgements>
+
+  <parameters>
+    <label>IO</label>
+    <description>Input/output parameters</description>
+    <image type="label">
+      <name>inputVolume</name>
+      <label>Input Volume</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description>Input volume</description>
+    </image>
+    <image type="label">
+      <name>outputVolume</name>
+      <label>Output Volume</label>
+      <channel>output</channel>
+      <index>1</index>
+      <description>Blurred Volume</description>
+    </image>
+    <transform fileExtensions=".txt" reference="NeedlePositionFileName">
+      <name>needleTransform</name>
+      <longflag>needletransform</longflag>
+      <description>Position and orientation of detected needle.</description>
+      <label>Needle transform</label>
+      <channel>output</channel>
+    </transform>
+  </parameters>
+
+  <parameters>
+    <label>Parameters for Label to Line Conversion</label>
+    <description>Parameters for Needle Identification using PCA</description>
+    <integer>
+      <name>needlelabel</name>
+      <longflag>needlelabel</longflag>
+      <description>Label for the segmented needle artifact.</description>
+      <label>Needle Label</label>
+      <default>1</default>
+    </integer>
+    <double-vector>
+      <name>normal</name>
+      <longflag>normal</longflag>
+      <flag>n</flag>
+      <label>Normal Vector</label>
+      <description>Normal vector for base needle orientation</description>
+      <default>0.0,0.0,1.0</default>
+    </double-vector>
+  </parameters>
+
+
+</executable>
