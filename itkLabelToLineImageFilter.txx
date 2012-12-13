@@ -219,7 +219,7 @@ LabelToLineImageFilter< TInput, TOutput >
     
     // Convert translation for slicer coordinate
     m_NeedleTransform->SetMatrix( matrix );
-    m_NeedleTransform->Translate( - (matrix * needleTip) );
+    m_NeedleTransform->Translate( - (matrix * needleTip) );  // TODO: Is this correct??
     }
 
 }
